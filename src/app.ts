@@ -10,7 +10,7 @@ import ClassRoutes from './routes/ClassRoutes';
 import AuthRoutes from './routes/AuthRoutes';
 import ClassRegistrationRoutes from './routes/ClassRegistrationRoutes';
 import TuitionRoutes from './routes/TuitionRoutes';
-import PaymentRoutes from './routes/PaymentRoutes';
+// import PaymentRoutes from './routes/PaymentRoutes';
 dotenv.config();
 
 const app = express();
@@ -27,7 +27,7 @@ app.use('/api/classes', ClassRoutes);
 app.use('/api/auth', AuthRoutes);
 app.use('/api/class-registrations', ClassRegistrationRoutes);
 app.use('/api/tuitions', TuitionRoutes);
-app.use('/api/payments', PaymentRoutes);
+// app.use('/api/payments', PaymentRoutes);
 
 const PORT = process.env.PORT || 3000;
 

@@ -20,5 +20,27 @@ export const TuitionService = {
       }],
       order: [['dueDate', 'ASC']]
     });
+  },
+
+  async markTuitionsAsPaid(tuitionIds: string[]) {
+    const now = new Date();
+    const result = await Tuition.update(
+      {
+        status: 'paid',
+        paymentDate: now
+      },
+      {
+        where: {
+          id: tuitionIds,
+          status: 'pending' // Chỉ cập nhật những khoản chưa thanh toán
+        }
+      }
+    );
+    
+    return await Tuition.findAll({
+      where: {
+        id: tuitionIds
+      }
+    });
   }
 };
